@@ -1,0 +1,3 @@
+variable "chain" {
+  type = string
+}

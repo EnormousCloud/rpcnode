@@ -18,6 +18,7 @@ export SSH_HOST=root@$WORKSPACE.enormous.cloud
     shift
     rsync -a --progress \
         --exclude '.terraform' \
+        --exclude '.git' \
         --exclude '*.hcl' \
         --exclude '*.json' \
         -r $(pwd)/ $SSH_HOST:/opt/

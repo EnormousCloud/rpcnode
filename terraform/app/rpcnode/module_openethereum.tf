@@ -4,5 +4,6 @@ module "openethereum" {
   network_params = module.network.params
   chain = var.chain
   engine = var.engine
+  bootnodes = var.bootnodes
 }
 

@@ -32,14 +32,15 @@ locals {
     ], 
         var.ancient ? [] : ["--no-ancient-blocks" ], 
         var.metrics ? [ "--metrics", "--metrics-interface", "all" ] : [],
-
+        var.bootnodes == "" ? [] : ["--bootnodes", "${var.bootnodes}"], 
     ) : concat(
         var.chain == "mainnet" ? ["--mainnet"] : [],
         var.chain == "goerli" ? ["--goerli"] : [],
         var.chain == "rinkeby" ? ["--rinkeby"] : [],
         var.chain == "ropsten" ? ["--ropsten"] : [],
-        var.chain == "kovan" ? ["--networkid", "42"] : [], // chain 42
+        var.chain == "kovan" ? ["--networkid", "42"] : [], 
         var.chain == "sepolia" ? ["--sepolia"] : [],
+        var.bootnodes == "" ? [] : ["--bootnodes", "${var.bootnodes}"], 
         local.snapshots ? [] : ["--syncmode=snap"],
         [
             "--http", 

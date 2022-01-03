@@ -1,0 +1,4 @@
+variable bootnodes {
+    type = string
+}
+
